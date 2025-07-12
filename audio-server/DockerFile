@@ -1,0 +1,26 @@
+# ✅ Use a Node image that supports apt-get
+FROM node:18-bullseye
+
+# ✅ Install Python & pip
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# ✅ Set working directory
+WORKDIR /app
+
+# ✅ Copy all files from audio-server folder
+COPY . .
+
+# ✅ Install yt-dlp via pip
+RUN pip3 install -U yt-dlp
+
+# ✅ Install Node dependencies
+RUN npm install
+
+# ✅ Set env variable so youtube-dl-exec uses yt-dlp
+ENV YOUTUBE_DL_EXEC_PATH=yt-dlp
+
+# ✅ Expose the port used in server.js
+EXPOSE 3000
+
+# ✅ Start the server
+CMD ["node", "server.js"]
