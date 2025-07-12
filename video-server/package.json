@@ -1,0 +1,23 @@
+{
+  "name": "video-server",
+  "version": "1.0.0",
+  "description": "Node proxy server for YouTube trailer video streaming",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "youtube-dl-exec": "^3.0.22"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
